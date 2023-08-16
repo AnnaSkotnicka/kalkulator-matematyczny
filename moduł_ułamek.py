@@ -1,8 +1,21 @@
+ import modul_funkcja_kwadratowa
+
 class Ulamek:
     def __init__(self, licznik, mianownik):
         self.licznik = licznik
         self.mianownik = mianownik
         print(f'licznik: {self.licznik}, mianownik: {self.mianownik}')
+
+    def ulamek_dziesietny(self):
+        dziesietny = self.licznik/self.mianownik
+        dziesietny = round(dziesietny, 2)
+        return f"Ułamek dziesiętny: {dziesietny}"
+
+class DzialaniaNaUlamkach:
+    def __init__(self, Pierwszy_ulamek, Drugi_ulamek):
+        self.Pierwszy_ulamek = Pierwszy_ulamek
+        self.Drugi_ulamek = Drugi_ulamek
+        print(f'licznik: {self.Pierwszy_ulamek}, mianownik: {self.Drugi_ulamek}')
 
     def skroc(self):
         przedział = min(self.licznik, self.mianownik)
@@ -18,24 +31,24 @@ class Ulamek:
         print(f"Licznik: {licznik}, mianownik: {mianownik}")
 
     def dodaj(self):
-        licznik = Pierwszy_ulamek.licznik + Drugi_ulamek.licznik
-        mianownik = Pierwszy_ulamek.mianownik + Drugi_ulamek.mianownik
+        licznik = self.licznik + Drugi_ulamek.licznik
+        mianownik = self.mianownik + Drugi_ulamek.mianownik
         print("Po dodaniu: ")
-        wynik = Ulamek(licznik, mianownik)
+        wynik = DzialaniaNaUlamkach(licznik, mianownik)
         return wynik
 
     def odejmij(self):
         licznik = Pierwszy_ulamek.licznik - Drugi_ulamek.licznik
         mianownik = Pierwszy_ulamek.mianownik - Drugi_ulamek.mianownik
         print("Po odjęciu: ")
-        wynik = Ulamek(licznik, mianownik)
+        wynik = DzialaniaNaUlamkach(licznik, mianownik)
         return wynik
 
     def mnoz(self):
         licznik = Pierwszy_ulamek.licznik * Drugi_ulamek.licznik
         mianownik = Pierwszy_ulamek.mianownik * Drugi_ulamek.mianownik
         print("Po mnoz: ")
-        wynik = Ulamek(licznik, mianownik)
+        wynik = DzialaniaNaUlamkach(licznik, mianownik)
         return wynik
 
     def dziel(self):
@@ -43,17 +56,25 @@ class Ulamek:
             licznik = Pierwszy_ulamek.licznik * Drugi_ulamek.mianownik
             mianownik = Pierwszy_ulamek.mianownik * Drugi_ulamek.licznik
             print("Po podzieleniu: ")
-            wynik = Ulamek(licznik, mianownik)
+            wynik = DzialaniaNaUlamkach(licznik, mianownik)
         except ZeroDivisionError:
             print("Nie da się podzielić przez zero")
-        return wynik
 
 
-Pierwszy_ulamek = Ulamek(2, 5)
-Drugi_ulamek = Ulamek(7, 9)
+if __name__ == "__main__":
+    Pierwszy_ulamek = Ulamek(2, 5)
+    print(Pierwszy_ulamek.ulamek_dziesietny())
+
+    Drugi_ulamek = Ulamek(7, 9)
+    print(Drugi_ulamek.ulamek_dziesietny())
+
+
 
 # Pierwszy_ulamek.skroc()
 # Pierwszy_ulamek.dodaj()
 # Pierwszy_ulamek.odejmij()
 # Pierwszy_ulamek.mnoz()
 # Pierwszy_ulamek.dziel()
+
+
+#  wpisywanie obu ułamków przez użytkownika
