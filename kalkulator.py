@@ -15,7 +15,7 @@ match co_zrobic:
                           "\nodjemowanie\nmnozenie\ndzielenie\n")
         match działanie:
             case dodawanie:
-                moduł_ułamek.DzialaniaNaUlamkach(4,6)
+                moduł_ułamek.Ulamek(4,6)
                 Pierwszy_ulamek.dodaj()
 
 
