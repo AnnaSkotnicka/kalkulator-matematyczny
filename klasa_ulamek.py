@@ -10,6 +10,8 @@ class Ulamek:
         self.licznik = int(input("Licznik: "))
         self.mianownik = int(input("Mianownik: "))
         print(f"Licznik: {self.licznik}, mianownik: {self.mianownik}")
+        if self.sprawdz_ulamek() == 0:  # sprawdzanie czy ułamek jest poprawny
+            self.użytkownik_input()  # Jeśli nie to ponownie wprowadź dane
 
     def sprawdz_ulamek(self):
         if self.mianownik == 0:
@@ -26,23 +28,35 @@ class Ulamek:
             print("Niewłaściwy ułamek - nie da się dzielić przez zero")
             return "Nie istnieje"
 
-    def skroc(self, tak_lub_nie=True):
-        self.licznik, self.mianownik = self.zwroc_skrocony(tak_lub_nie)
-
-    def zwroc_skrocony(self, tak_lub_nie = True):
+    def najmniejszy_wspolny_dzielnik(self):  # Jeśli istnieje najmniejszy wspólny dzielnik to go zwraca, jeśli nie to False
         minimum = min(self.licznik, self.mianownik)
-        for i in range(minimum, 1, -1):
-            if self.licznik % i == 0 and self.mianownik % i == 0:  # Jeśli da się skrócić
-                self.licznik = self.licznik / i
-                self.mianownik = self.mianownik / i
-                if tak_lub_nie:
-                    print("Po skróceniu: ", end="")
-                    self.wyswietl()
-                return self.licznik, self.mianownik
-        if tak_lub_nie:
-            print("Nie da się skrócić.")
+        for dzielnik in range(minimum, 1, -1):
+            if self.licznik % dzielnik == 0 and self.mianownik % dzielnik == 0:
+                return dzielnik
+        return 0
+
+    def czy_podzielny(self,  wyswietlanie_napisu=True):
+        if self.najmniejszy_wspolny_dzielnik() > 1:
+            self.komunikat(wyswietlanie_napisu)
+            return True
+        else:
+            self.komunikat(wyswietlanie_napisu)
+            return False
+
+    def zwroc_skrocony(self):
+        if self.czy_podzielny():
+            dzielnik = self.najmniejszy_wspolny_dzielnik()
+            self.licznik = self.licznik / dzielnik
+            self.mianownik = self.mianownik / dzielnik
+            self.wyswietl()
+            return self.licznik, self.mianownik
         return self.licznik, self.mianownik
 
-    # def rozszerz_ulamek(self):
-
+    def komunikat(self, wyswietlanie_napisu=True):
+        if self.najmniejszy_wspolny_dzielnik() > 0:
+            if wyswietlanie_napisu:
+                print("Po skróceniu: ", end="")
+        elif self.najmniejszy_wspolny_dzielnik() == 0:
+            if wyswietlanie_napisu:
+                print("Nie da się skrócić.")
 

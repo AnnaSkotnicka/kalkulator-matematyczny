@@ -4,17 +4,13 @@ from klasa_dzialania_na_ulamkach import DzialaniaNaUlamkach
 if __name__ == "__main__":
     Pierwszy_ulamek = Ulamek()  # Tworzenie obiektu ułamek
     Pierwszy_ulamek.użytkownik_input()  # Wprowadzanie wartości przez użytkowanika
-    if Pierwszy_ulamek.sprawdz_ulamek() == 0:  # Sprawdzanie wartości od użytkownika (mianownik != 0)
-        Pierwszy_ulamek.użytkownik_input()  # Wartość niepoprawna = ponowne wpisanie wartości
-    Pierwszy_ulamek.zwroc_skrocony(True)  # Do skrócenia ułamka - False nie wyświetla inf czy da się skrócić
+    # Pierwszy_ulamek.komunikat(wyswietlanie_napisu=True)
+    Pierwszy_ulamek.zwroc_skrocony()  # Do skrócenia ułamka - False nie wyświetla inf czy da się skrócić
     print(f"Ułamek dzisiętny: {Pierwszy_ulamek.ulamek_dziesietny()}\n")
 
     Drugi_ulamek = Ulamek()  # Tworzenie obiektu ułamek
     Drugi_ulamek.użytkownik_input()  # Wprowadzanie wartości przez użytkowanika
-    if Drugi_ulamek.sprawdz_ulamek() == 0:  # Sprawdzanie wartości od użytkownika
-        Drugi_ulamek.użytkownik_input()  # Wartość niepoprawna = ponowne wpisanie wartości
     Drugi_ulamek.zwroc_skrocony()  # Do skrócenia ułamka
-    Drugi_ulamek.wyswietl()  # Do wyświetlenia skróconego ułamka
     print(f"Ułamek dziesiętny: {Drugi_ulamek.ulamek_dziesietny()}\n")
 
     Działanie1 = DzialaniaNaUlamkach(Pierwszy_ulamek, Drugi_ulamek)  # Tworzenie obiektu
