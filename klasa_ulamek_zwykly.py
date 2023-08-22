@@ -1,5 +1,5 @@
 class UlamekZwykly:
-    def __init__(self, licznik = 1, mianownik = 1):
+    def __init__(self, licznik, mianownik):
         self.licznik = licznik
         self.mianownik = mianownik
         self.dzielnik = self.najmniejszy_wspolny_dzielnik()
@@ -7,12 +7,17 @@ class UlamekZwykly:
     def wyswietl(self):
         print(f"Licznik: {self.licznik}, mianownik: {self.mianownik}")
 
-    def użytkownik_input(self):
-        self.licznik = int(input("Licznik: "))
-        self.mianownik = int(input("Mianownik: "))
-        print(f"Licznik: {self.licznik}, mianownik: {self.mianownik}")
-        if self.sprawdz_ulamek() == 0:  # sprawdzanie czy ułamek jest poprawny
-            self.użytkownik_input()  # Jeśli nie to ponownie wprowadź dane
+    @staticmethod
+    def użytkownik_input():
+        licznik = int(input("Licznik: "))
+        mianownik = int(input("Mianownik: "))
+
+        if mianownik == 0:  # sprawdzanie, czy ułamek jest poprawny
+            print("Niewłaściwy ułamek - nie da się dzielić przez zero.\n"
+                  "Wpisz właściwy ułamek")
+            return UlamekZwykly.użytkownik_input()  # Jeśli nie to ponownie wprowadź dane
+
+        return UlamekZwykly(licznik, mianownik)
 
     def sprawdz_ulamek(self):
         if self.mianownik == 0:
