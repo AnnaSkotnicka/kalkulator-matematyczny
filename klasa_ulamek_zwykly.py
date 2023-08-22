@@ -1,7 +1,8 @@
-class Ulamek:
+class UlamekZwykly:
     def __init__(self, licznik = 1, mianownik = 1):
         self.licznik = licznik
         self.mianownik = mianownik
+        self.dzielnik = self.najmniejszy_wspolny_dzielnik()
 
     def wyswietl(self):
         print(f"Licznik: {self.licznik}, mianownik: {self.mianownik}")
@@ -19,7 +20,7 @@ class Ulamek:
                   "Wpisz właściwy ułamek")
             return 0
 
-    def ulamek_dziesietny(self):
+    def zamiana_na_ulamek_dziesietny(self):
         try:
             dziesietny = self.licznik/self.mianownik
             dziesietny = round(dziesietny, 2)
@@ -35,28 +36,25 @@ class Ulamek:
                 return dzielnik
         return 0
 
-    def czy_podzielny(self,  wyswietlanie_napisu=True):
+    def czy_podzielny(self):
         if self.najmniejszy_wspolny_dzielnik() > 1:
-            self.komunikat(wyswietlanie_napisu)
             return True
         else:
-            self.komunikat(wyswietlanie_napisu)
             return False
 
-    def zwroc_skrocony(self):
+    def zwroc_skrocony(self, wyswietlanie_napisu=True):
         if self.czy_podzielny():
-            dzielnik = self.najmniejszy_wspolny_dzielnik()
-            self.licznik = self.licznik / dzielnik
-            self.mianownik = self.mianownik / dzielnik
-            self.wyswietl()
+            self.licznik = self.licznik / self.dzielnik
+            self.mianownik = self.mianownik / self.dzielnik
+            self.komunikat(wyswietlanie_napisu)
             return self.licznik, self.mianownik
+        self.komunikat(wyswietlanie_napisu)
         return self.licznik, self.mianownik
 
     def komunikat(self, wyswietlanie_napisu=True):
-        if self.najmniejszy_wspolny_dzielnik() > 0:
+        if self.dzielnik > 0:
             if wyswietlanie_napisu:
                 print("Po skróceniu: ", end="")
-        elif self.najmniejszy_wspolny_dzielnik() == 0:
+        elif self.dzielnik == 0:
             if wyswietlanie_napisu:
                 print("Nie da się skrócić.")
-
