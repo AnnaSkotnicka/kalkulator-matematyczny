@@ -1,7 +1,7 @@
 # kalkulator-matematyczny
 
 ### Jest to mój pierwszy miniprojekt. 
-### Wykorzystam programowanie zorientowane obiektowo i immportowanie modułów.
+### Wykorzystam programowanie zorientowane obiektowo i importowanie modułów.
 
 #### Kalkulator będzie miał różne funkcje.
 #### Na razie jest przygotowany moduł liczący miejsca zerowe funkcji kwadratowej.
