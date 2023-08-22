@@ -27,5 +27,5 @@ class FunkcjaKwadratowa:
 
 
 if __name__ == "__main__":
-    Funkcja1 = FunkcjaKwadratowa()
-    Funkcja1.rozwiaz()
+    funkcja1 = FunkcjaKwadratowa()
+    funkcja1.rozwiaz()
