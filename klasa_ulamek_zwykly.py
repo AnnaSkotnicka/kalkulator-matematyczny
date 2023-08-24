@@ -5,7 +5,8 @@ class UlamekZwykly:
         self.dzielnik = self.najmniejszy_wspolny_dzielnik()
 
     def wyswietl(self):
-        print(f"Licznik: {self.licznik}, mianownik: {self.mianownik}")
+        print(f"Licznik: {self.licznik}, mianownik: {self.mianownik} \n"
+              f"Dziesiętny: {self.zamiana_na_ulamek_dziesietny()}")
 
     @staticmethod
     def użytkownik_input():
