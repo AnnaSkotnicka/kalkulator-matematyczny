@@ -16,35 +16,22 @@ class DzialaniaNaUlamkachZwyklych:
     def dodaj(self):
         licznik_pierwszego, licznik_drugiego, mianownik = self.rozszerz_ulamek()
         licznik = licznik_pierwszego + licznik_drugiego
-        wynik = UlamekZwykly(licznik, mianownik)
-        print("Po dodaniu: ")
-        wynik.zwroc_skrocony(False)  # Argument False - odpowiada za nie wyświetlanie informacji czy ułamek jest skrócony
-        wynik.wyswietl()  # Wyświetla nowy licznik i mianownik
         return UlamekZwykly(licznik, mianownik)
 
     def odejmij(self):
         licznik_pierwszego, licznik_drugiego, mianownik = self.rozszerz_ulamek()
         licznik = licznik_pierwszego - licznik_drugiego
-        wynik = UlamekZwykly(licznik, mianownik)
-        print("Po odjęciu: ")
-        wynik.zwroc_skrocony(False)
-        wynik.wyswietl()
         return UlamekZwykly(licznik, mianownik)
 
     def mnoz(self):
         licznik = self.pierwszy_ulamek.licznik * self.drugi_ulamek.licznik
         mianownik = self.pierwszy_ulamek.mianownik * self.drugi_ulamek.mianownik
-        wynik = UlamekZwykly(licznik, mianownik)
-        print("Po pomnożeniu: ")
-        wynik.zwroc_skrocony(False)
-        wynik.wyswietl()
         return UlamekZwykly(licznik, mianownik)
 
     def dziel(self):
         licznik = self.pierwszy_ulamek.licznik * self.drugi_ulamek.mianownik
         mianownik = self.pierwszy_ulamek.mianownik * self.drugi_ulamek.licznik
-        wynik = UlamekZwykly(licznik, mianownik)
-        print("Po podzieleniu: ")
-        wynik.zwroc_skrocony(False)
-        wynik.wyswietl()
         return UlamekZwykly(licznik, mianownik)
+
+
+#  Użyć operatorów przeciążenia
