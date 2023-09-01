@@ -7,9 +7,9 @@ class DzialaniaNaUlamkachZwyklych:
         self.drugi_ulamek = drugi_ulamek
 
     def rozszerz_ulamek(self):
-        licznik_pierwszego = self.pierwszy_ulamek.licznik * self.drugi_ulamek.mianownik  # Rozszerzenie Licznika ułamka 1
-        licznik_drugiego = self.drugi_ulamek.licznik * self.pierwszy_ulamek.mianownik  # Rozszerzenie licznika ułamka 2
-        mianownik = self.pierwszy_ulamek.mianownik * self.drugi_ulamek.mianownik  # Wspólny mianownik
+        licznik_pierwszego = self.pierwszy_ulamek.zwroc_licznik() * self.drugi_ulamek.zwroc_mianownik()  # Rozszerzenie Licznika ułamka 1
+        licznik_drugiego = self.drugi_ulamek.zwroc_licznik() * self.pierwszy_ulamek.zwroc_mianownik()  # Rozszerzenie licznika ułamka 2
+        mianownik = self.pierwszy_ulamek.zwroc_mianownik() * self.drugi_ulamek.zwroc_mianownik()  # Wspólny mianownik
 
         return licznik_pierwszego, licznik_drugiego, mianownik
 
