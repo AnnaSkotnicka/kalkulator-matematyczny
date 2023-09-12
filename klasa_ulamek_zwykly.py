@@ -1,5 +1,8 @@
 class UlamekZwykly:
     def __init__(self, licznik, mianownik):
+        if mianownik == 0:
+            raise Exception("Mianownik musi być różny od zera.")
+
         self.__licznik = licznik
         self.__mianownik = mianownik
         self.__dzielnik = self.najmniejszy_wspolny_dzielnik()
