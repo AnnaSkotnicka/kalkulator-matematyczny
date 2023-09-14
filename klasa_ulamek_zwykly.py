@@ -5,7 +5,7 @@ class UlamekZwykly:
 
         self.__licznik = licznik
         self.__mianownik = mianownik
-        self.__dzielnik = self.najmniejszy_wspolny_dzielnik()
+        self.__dzielnik = self.najwiekszy_wspolny_dzielnik()
 
     def wyswietl(self):
         print(f"Licznik: {self.__licznik}, mianownik: {self.__mianownik} \n"
@@ -23,12 +23,6 @@ class UlamekZwykly:
 
         return UlamekZwykly(licznik, mianownik)
 
-    def sprawdz_ulamek(self):
-        if self.__mianownik == 0:
-            print("Niewłaściwy ułamek - nie da się dzielić przez zero.\n"
-                  "Wpisz właściwy ułamek")
-            return 0
-
     def zamiana_na_ulamek_dziesietny(self):
         try:
             dziesietny = self.__licznik/self.__mianownik
@@ -38,7 +32,12 @@ class UlamekZwykly:
             print("Niewłaściwy ułamek - nie da się dzielić przez zero")
             return "Nie istnieje"
 
-    def najmniejszy_wspolny_dzielnik(self):  # Jeśli istnieje najmniejszy wspólny dzielnik to go zwraca, jeśli nie to False
+    def najwiekszy_wspolny_dzielnik(self):  # Zwraca najmniejszy wspólny dzielnik, jeśli nie istnieje to False
+        if self.__licznik < 0:
+            self.__licznik *= (-1)
+        if self.__mianownik < 0:
+            self.__mianownik *= (-1)
+
         minimum = min(self.__licznik, self.__mianownik)
         for __dzielnik in range(minimum, 1, -1):
             if self.__licznik % __dzielnik == 0 and self.__mianownik % __dzielnik == 0:
@@ -46,7 +45,7 @@ class UlamekZwykly:
         return 0
 
     def czy_podzielny(self):
-        if self.najmniejszy_wspolny_dzielnik() > 1:
+        if self.najwiekszy_wspolny_dzielnik() > 1:
             return True
         else:
             return False
