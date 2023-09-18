@@ -43,9 +43,9 @@ class TestUlamekZwykly:
         ulamek = klasa_ulamek_zwykly.UlamekZwykly(licznik, mianownik)
         assert ulamek.czy_podzielny() == result
 
-    @pytest.mark.parametrize("licznik, mianownik, skrocony_licznik, skrocony_mianownik", [(4, 8, 1, 2),
-                                                                                          (-4, 8, 1, 2),
-                                                                                          (3, 5, 3, 5),
+    @pytest.mark.parametrize("licznik, mianownik, skrocony_licznik, skrocony_mianownik", [(4, 8, 1.0, 2.0),
+                                                                                          (-4, 8, -1.0, 2.0),
+                                                                                          (3, 5, 3.0, 5.0),
                                                                                           ])
     def test_zwroc_skrocony(self, licznik, mianownik, skrocony_licznik, skrocony_mianownik):
         ulamek = klasa_ulamek_zwykly.UlamekZwykly(licznik, mianownik)
