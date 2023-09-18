@@ -33,14 +33,9 @@ class UlamekZwykly:
             return "Nie istnieje"
 
     def najwiekszy_wspolny_dzielnik(self):  # Zwraca najmniejszy wspólny dzielnik, jeśli nie istnieje to False
-        if self.__licznik < 0:
-            self.__licznik *= (-1)
-        if self.__mianownik < 0:
-            self.__mianownik *= (-1)
-
-        minimum = min(self.__licznik, self.__mianownik)
+        minimum = min(abs(self.__licznik), abs(self.__mianownik))
         for __dzielnik in range(minimum, 1, -1):
-            if self.__licznik % __dzielnik == 0 and self.__mianownik % __dzielnik == 0:
+            if abs(self.__licznik) % __dzielnik == 0 and abs(self.__mianownik) % __dzielnik == 0:
                 return __dzielnik
         return 0
 
