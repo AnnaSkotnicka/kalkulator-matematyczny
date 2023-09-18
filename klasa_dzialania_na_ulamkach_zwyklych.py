@@ -7,12 +7,15 @@ class DzialaniaNaUlamkachZwyklych:
         self.drugi_ulamek = drugi_ulamek
 
     def rozszerz_ulamek(self):
-        licznik_pierwszego = self.pierwszy_ulamek.zwroc_licznik() * self.drugi_ulamek.zwroc_mianownik()
+        if self.pierwszy_ulamek.zwroc_mianownik() == self.drugi_ulamek.zwroc_mianownik():
+            return self.pierwszy_ulamek.zwroc_licznik(), self.drugi_ulamek.zwroc_licznik(), self.drugi_ulamek.zwroc_mianownik()
+
         # Rozszerzenie Licznika ułamka 1
-        licznik_drugiego = self.drugi_ulamek.zwroc_licznik() * self.pierwszy_ulamek.zwroc_mianownik()
+        licznik_pierwszego = self.pierwszy_ulamek.zwroc_licznik() * self.drugi_ulamek.zwroc_mianownik()
         # Rozszerzenie licznika ułamka 2
-        mianownik = self.pierwszy_ulamek.zwroc_mianownik() * self.drugi_ulamek.zwroc_mianownik()
+        licznik_drugiego = self.drugi_ulamek.zwroc_licznik() * self.pierwszy_ulamek.zwroc_mianownik()
         # Wspólny mianownik
+        mianownik = self.pierwszy_ulamek.zwroc_mianownik() * self.drugi_ulamek.zwroc_mianownik()
 
         return licznik_pierwszego, licznik_drugiego, mianownik
 
@@ -27,13 +30,11 @@ class DzialaniaNaUlamkachZwyklych:
         return UlamekZwykly(licznik, mianownik)
 
     def mnoz(self):
-        licznik = self.pierwszy_ulamek.licznik * self.drugi_ulamek.licznik
-        mianownik = self.pierwszy_ulamek.mianownik * self.drugi_ulamek.mianownik
+        licznik = self.pierwszy_ulamek.zwroc_licznik() * self.drugi_ulamek.zwroc_licznik()
+        mianownik = self.pierwszy_ulamek.zwroc_mianownik() * self.drugi_ulamek.zwroc_mianownik()
         return UlamekZwykly(licznik, mianownik)
 
     def dziel(self):
-        licznik = self.pierwszy_ulamek.licznik * self.drugi_ulamek.mianownik
-        mianownik = self.pierwszy_ulamek.mianownik * self.drugi_ulamek.licznik
+        licznik = self.pierwszy_ulamek.zwroc_licznik() * self.drugi_ulamek.zwroc_mianownik()
+        mianownik = self.pierwszy_ulamek.zwroc_mianownik() * self.drugi_ulamek.zwroc_licznik()
         return UlamekZwykly(licznik, mianownik)
-
-
