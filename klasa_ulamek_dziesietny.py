@@ -10,7 +10,8 @@ class UlamekDziesietny:
         wartosc = float(input("Ułamek dziesiętny: "))
         return UlamekDziesietny(wartosc)
 
-    def zamien_na_ulamek_zwykly(self, mianownik=10):  # Gdy działanie będzie złożone z ulamków zwyklych i dziesietnych to program bedzie operowal na ulamkach zwyklych
+    def zamien_na_ulamek_zwykly(self, mianownik=10):
+        # Gdy działanie będzie złożone z ulamków zwyklych i dziesietnych to program bedzie operowal na ulamkach zwyklych
         reszta = (self.wartosc * mianownik) % 1
 
         if reszta == 0:
