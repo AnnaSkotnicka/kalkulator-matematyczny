@@ -1,7 +1,6 @@
 import pytest
 from klasa_dzialania_na_ulamkach_zwyklych import DzialaniaNaUlamkachZwyklych
 from klasa_ulamek_zwykly import UlamekZwykly
-from klasa_ulamek_dziesietny import UlamekDziesietny
 
 
 class TestDzialania:
